@@ -1,0 +1,16 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Words Per Day</title>
+</head>
+
+<body>
+  <div class="container">
+    {{#each posts}}
+      {{> post}}
+    {{/each}}
+  </div>
+</body>
+
+<template name="post">
+  <li class="content">{{content}}</li>
+</template>
