@@ -3,7 +3,7 @@
   <title>Words Per Day</title>
 </head>
 
-<template name="mainLayout">
+<body>
   <header>
     <h1>Capote</h1>
     <h2>Track your daily word count</h2>
@@ -14,12 +14,6 @@
       <button type="button" name="accounts">Accounts</button>
     </div>
   </header>
-  <main>
-    {{>Template.dynamic template=content}}
-  </main>
-</template>
-
-<template name="homePage">
   <div class="container">
     <div class="current-streak">
       Word count: ____
@@ -31,14 +25,7 @@
       {{> post}}
     {{/each}}
   </div>
-</template>
-
-<template name="singlePost">
-  <h1>{{title}}</h1>
-  <p>
-    {{content}}
-  </p>
-</template>
+</body>
 
 <template name="post">
   <li class="content">{{title}}</li>
