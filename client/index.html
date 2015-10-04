@@ -28,13 +28,18 @@
       Daily goal: ____
     </div>
     {{#each posts}}
-      {{> post}}
+      {{> postItem}}
     {{/each}}
   </div>
 </template>
 
-<template name="post">
-  <li class="content"><a href={{pathForPost}}>{{title}}</a></li>
+<template name="postItem">
+  <div class="content">
+    <a href={{pathForPost}}>{{title}}</a>
+    <span class="datetime">
+       {{createdAt}}
+    </span>
+  </div>
 </template>
 
 <template name="singlePost">
@@ -42,7 +47,7 @@
   {{#if Template.subscriptionsReady}}
     {{#with post}}
       <h3>{{title}}</h3>
-      <p>{{content}}</p>
+      <div class="post-content">{{content}}</div>
     {{/with}}
   {{else}}
       <p>Loading...</p>
