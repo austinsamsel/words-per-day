@@ -3,17 +3,23 @@
   <title>Words Per Day</title>
 </head>
 
-<body>
-  <header>
-    <h1>Capote</h1>
-    <h2>Track your daily word count</h2>
-    <div class="create-post">
-      <button type="button" name="new">Create a post</button>
-    </div>
-    <div class="account">
-      <button type="button" name="accounts">Accounts</button>
-    </div>
-  </header>
+<template name="layout">
+  {{> header}}
+  {{> yield}}
+</template>
+
+<template name="header">
+  <h1><a href="{{pathFor 'homePage'}}">Capote</a></h1>
+  <h2>Track your daily word count</h2>
+  <div class="create-post">
+    <button type="button" name="new">Create a post</button>
+  </div>
+  <div class="account">
+    <button type="button" name="accounts">Accounts</button>
+  </div>
+</template>
+
+<template name="homePage">
   <div class="container">
     <div class="current-streak">
       Word count: ____
@@ -25,7 +31,7 @@
       {{> post}}
     {{/each}}
   </div>
-</body>
+</template>
 
 <template name="post">
   <li class="content">{{title}}</li>
