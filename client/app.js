@@ -2,7 +2,6 @@ if (Meteor.isClient) {
 
   Meteor.subscribe('posts');
 
-
   Template.homePage.helpers({
     posts: function () {
       return Posts.find({});
@@ -24,7 +23,7 @@ if (Meteor.isClient) {
   });
 
   //
-  Template.post.helpers({
+  Template.postItem.helpers({
     pathForPost: function() {
       var post = this;
       var postId = post._id;

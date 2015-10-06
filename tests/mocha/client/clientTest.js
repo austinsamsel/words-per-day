@@ -28,20 +28,16 @@ if (!(typeof MochaWeb === 'undefined')){
         chai.assert.equal($(".content:eq(1) a").html(), "fatback filet mignon");
       });
 
-      it("follow the link to the singlePost page", function (done) {
-        try {
-          FlowRouter.go("/");
-          afterRendered(Template.postItem, function() {
-            chai.expect($(".content > div")[0]).to.not.be.undefined;
-            $(".content > div:eq(1) a").click();
-            setTimeout(function() {
-                chai.assert.equal($(".post-content").html(), "Bacon ipsum dolor amet alcatra turkey shank cupim corned beef brisket chuck boudin tri-tip t-bone kevin fatback filet mignon. Short loin tongue short ribs.");
-                done();
-            },100);
-          })
-        } catch (e) {
-          done(e);
-        }
+      it("follow the link to the singlePost page", function () {
+        FlowRouter.go("/");
+        afterRendered(Template.postItem, function() {
+          chai.expect($(".content > div")[0]).to.not.be.undefined;
+          $(".content > div:eq(1) a").click();
+          setTimeout(function() {
+              chai.assert.equal($(".post-content").html(), "Bacon ipsum dolor amet alcatra turkey shank cupim corned beef brisket chuck boudin tri-tip t-bone kevin fatback filet mignon. Short loin tongue short ribs.");
+              done();
+          },100);
+        })
       });
     })
   });
