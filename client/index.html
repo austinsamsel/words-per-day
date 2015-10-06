@@ -1,7 +1,7 @@
-<head>
+<!-- <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Words Per Day</title>
-</head>
+</head> -->
 
 <template name="layout">
   {{> header}}
@@ -9,7 +9,7 @@
 </template>
 
 <template name="header">
-  <h1><a href="{{pathFor 'homePage'}}">Capote</a></h1>
+  <h1><a href="{{pathFor 'postList'}}">Capote</a></h1>
   <h2>Track your daily word count</h2>
   <div class="create-post">
     <button type="button" name="new">Create a post</button>
@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<template name="homePage">
+<template name="postList">
   <div class="container">
     <div class="current-streak">
       Word count: ____
@@ -34,5 +34,10 @@
 </template>
 
 <template name="post">
-  <li class="content">{{title}}</li>
+  <li class="content"><a href="{{pathFor 'singlePost'}}">{{title}}</a></li>
+</template>
+
+<template name="singlePost">
+  <div class="content">{{title}}</div>
+  {{content}}
 </template>
