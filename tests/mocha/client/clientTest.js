@@ -17,20 +17,17 @@ if (!(typeof MochaWeb === 'undefined')){
         chai.assert.equal($(".time:eq(1)").html(), "01-03-2015");
       });
 
-      it("should show my 2nd post, second.", function(){
+      it("should show my latest post, first.", function(){
         Meteor.flush();
-        chai.assert.equal($(".title:eq(1)").html(), "fatback filet mignon");
+        chai.assert.equal($(".title:eq(0)").html(), "Neutra messenger bag");
       });
     });
 
-    // create a post.
-    // edit a post
-    // hide content until user expands it.
-
-    describe("Streak feature", function(){
+    describe("Measure the streak", function(){
       it("displays how many continuous days the user has matched its goal", function(){
         Meteor.flush();
         chai.assert.equal($(".title:eq(1)").html(), "fatback filet mignon");
       });
+    });
   });
 }

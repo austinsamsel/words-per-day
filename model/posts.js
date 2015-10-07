@@ -2,12 +2,12 @@ Posts = new Mongo.Collection('posts');
 
 if (Meteor.isClient) {
 
-  // Meteor.subscribe('posts');
+  Meteor.subscribe('posts');
 
   // This code only runs on the client
   Template.body.helpers({
     posts: function () {
-      return Posts.find({});
+      return Posts.find({}, {sort: {createdAt: -1}});
     }
   });
   Template.registerHelper('cleanDate', function(date) {
@@ -17,16 +17,18 @@ if (Meteor.isClient) {
   Template.createPost.events({
     'submit form': function(e){
       e.preventDefault();
-      var title = $('[name=title]').val();
-      var content = $('[name=content]').val();
+      var title = $('[name="title"]').val();
+      var content = $('[name="content"]').val();
       Posts.insert({
-        name: title,
+        title: title,
         content: content,
         //wordcount: wordcount,
         createdAt: new Date()
       });
+      $('[name=title]').val('');
+      $('[name=content]').val('');
     }
-  })
+  });
 
 
 }
