@@ -18,4 +18,7 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 mike:mocha
 insecure
-iron:router
+momentjs:moment
+
+
+npm-container

@@ -28,5 +28,11 @@
 </body>
 
 <template name="post">
-  <li class="content">{{title}}</li>
+  <div class="time">{{cleanDate createdAt}}</div>
+  <div class="title">{{title}}</div>
+  {{> content}}
+</template>
+
+<template name="content">
+  <div class="content">{{content}}</div>
 </template>
