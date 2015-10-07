@@ -13,7 +13,6 @@ if (!(typeof MochaWeb === 'undefined')){
       });
     });
     describe("Posts", function(){
-
       it("should show a clean 'time ago' timestamp", function(){
         chai.assert.equal($(".time:eq(1)").html(), "01-03-2015");
       });
@@ -27,9 +26,11 @@ if (!(typeof MochaWeb === 'undefined')){
     // create a post.
     // edit a post
     // hide content until user expands it.
-    //
 
-
-
+    describe("Streak feature", function(){
+      it("displays how many continuous days the user has matched its goal", function(){
+        Meteor.flush();
+        chai.assert.equal($(".title:eq(1)").html(), "fatback filet mignon");
+      });
   });
 }
