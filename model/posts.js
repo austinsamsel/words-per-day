@@ -29,6 +29,13 @@ if (Meteor.isClient) {
       $('[name=content]').val('');
     }
   });
+  Template.content.events({
+    'click .deletePost': function(e){
+      e.preventDefault();
+      var thisPostId = this._id;
+      Posts.remove(thisPostId);
+    }
+  })
 
 
 }

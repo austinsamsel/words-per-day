@@ -23,6 +23,9 @@ if (!(typeof MochaWeb === 'undefined')){
       });
     });
 
+    // tests for adding a post.
+    // tests for deleting a post.
+
     describe("Measure the streak", function(){
       it("displays how many continuous days the user has matched its goal", function(){
         Meteor.flush();
