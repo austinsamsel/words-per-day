@@ -29,8 +29,25 @@ if (!(typeof MochaWeb === 'undefined')){
     describe("Measure the streak", function(){
       it("displays how many continuous days the user has matched its goal", function(){
         Meteor.flush();
-        chai.assert.equal($(".title:eq(1)").html(), "fatback filet mignon");
+        //chai.assert.equal($(".title:eq(1)").html(), "fatback filet mignon");
       });
     });
+
+    describe("crud for posts", function(){
+      it("deletes when I tell it to delete", function(){
+        //Meteor.flush();
+        //var posts = Posts.find().fetch();
+        //$(".delete").click();
+        //chai.assert(posts.count() == 2);
+
+        // https://github.com/mad-eye/meteor-mocha-web/issues/136
+        // reset datbase, or how to do this...
+
+        Meteor.flush();
+        $(".deletePost").first().click();
+        chai.assert.equal($(".title:eq(0)").html(), "fatback filet mignon");
+      });
+    });
+
   });
 }
