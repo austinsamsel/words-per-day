@@ -6,19 +6,19 @@
 <body>
   <header>
     <h1>Capote</h1>
-    <h2>Track your daily word count</h2>
-    <div class="create-post">
-      <button type="button" name="new">Create a post</button>
-    </div>
-    <div class="account">
+    <!-- <div class="account">
       <button type="button" name="accounts">Accounts</button>
+    </div> -->
+    <h2>Track your daily word count</h2>
+    <div class="createPost">
+      {{> createPost}}
     </div>
   </header>
   <div class="container">
     <div class="current-streak">
       Current Streak: ____
     </div>
-    <div class="daily-goal">
+    <div class="dailyGoal">
       Daily goal: ____
     </div>
     {{#each posts}}
@@ -35,4 +35,13 @@
 
 <template name="content">
   <div class="content">{{content}}</div>
+</template>
+
+<template name="createPost">
+  <form>
+    Create a post:
+    <input type="text" placeholder="add a title" name="title">
+    <textarea placeholder="write your words here" name="content"></textarea>
+    <input type="button" value="Submit">
+ </form>
 </template>
