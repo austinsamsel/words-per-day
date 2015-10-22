@@ -31,6 +31,7 @@
   <div class="time">{{cleanDate createdAt}}</div>
   <div class="title">{{title}}</div>
   {{> content}}
+  <div class="wordcount">{{wordCount}}</div>
 </template>
 
 <template name="content">
@@ -42,6 +43,9 @@
     Create a post:
     <input type="text" placeholder="add a title" name="title">
     <textarea placeholder="write your words here" name="content"></textarea>
+    <div class="wordcount">
+      YO {{wordCount}} this is the wordcount
+    </div>
     <input type="submit" value="Submit">
  </form>
 </template>

@@ -4,6 +4,14 @@ if (Meteor.isServer) {
     return Posts.find();
   });
 
+  Meteor.methods({
+    'getWordcount': function getWordcount(words) {
+      check(words, String);
+      var wordcount = Meteor.npmRequire('wordcount');
+      return wordcount(words);
+    }
+  });
+
   Meteor.startup(function () {
     if (Posts.find().count() === 0) {
       Posts.insert({

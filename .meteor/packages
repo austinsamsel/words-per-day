@@ -19,7 +19,9 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 mike:mocha
 insecure
 momentjs:moment
+meteorhacks:npm
 
 
 npm-container
-meteorhacks:npm
+check
+audit-argument-checks
