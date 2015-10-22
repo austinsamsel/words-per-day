@@ -19,7 +19,7 @@
       Current Streak: ____
     </div>
     <div class="dailyGoal">
-      Daily goal: ____
+      {{> dailyGoal}}
     </div>
     {{#each posts}}
       {{> post}}
@@ -47,5 +47,11 @@
       YO <span class="wordcount">{{wordCount}}</span> this is the wordcount
     </div>
     <input type="submit" value="Submit">
+ </form>
+</template>
+
+<template name="dailyGoal">
+  <form>
+    Your daily goal: <input value="{{dailyGoal}}" placeholder="your goal" name="goal"> words.
  </form>
 </template>

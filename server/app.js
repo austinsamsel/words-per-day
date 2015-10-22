@@ -4,6 +4,10 @@ if (Meteor.isServer) {
     return Posts.find();
   });
 
+  Meteor.publish("goals", function(){
+    return Goals.find();
+  });
+
   Meteor.methods({
     'getWordcount': function getWordcount(words) {
       check(words, String);
