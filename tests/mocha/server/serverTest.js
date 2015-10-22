@@ -6,4 +6,6 @@ if (!(typeof MochaWeb === 'undefined')){
       });
     });
   });
+
+  // test for server method for word count?
 }
