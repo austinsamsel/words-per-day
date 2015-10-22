@@ -22,8 +22,7 @@ if (Meteor.isClient) {
       e.preventDefault();
       var title = $('[name="title"]').val();
       var content = $('[name="content"]').val();
-      var wordCount = $('.wordcount').val();
-
+      var wordCount = $('.wordcount').html();
       Posts.insert({
         title: title,
         content: content,
@@ -32,6 +31,7 @@ if (Meteor.isClient) {
       });
       $('[name=title]').val('');
       $('[name=content]').val('');
+      Session.set('wordCountResult', 0);
     },
     'keyup [name=content]': function(e){
       var wordsToCount = $('[name="content"]').val();
