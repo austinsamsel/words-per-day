@@ -66,5 +66,20 @@ if (!(typeof MochaWeb === 'undefined')){
       });
     });
 
+    describe("wordcount", function() {
+      before(function(done){
+        // type in the form
+        //$('[name="title"]').val('a new post');
+        //$('[name="content"]').val('automatic style');
+        //$('[name="content"]').keyup(); // to trigger keyup. better bdd
+        Session.set('wordCountResult', 2); // set session.
+        done();
+      });
+      it("displays the wordcount when the user types in the form", function(){
+        Meteor.flush();
+        chai.assert.equal($('.wordcount').html(), "2")
+      })
+    })
+
   });
 }
