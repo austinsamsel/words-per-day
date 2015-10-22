@@ -78,6 +78,15 @@ if (!(typeof MochaWeb === 'undefined')){
       it("displays the wordcount when the user types in the form", function(){
         Meteor.flush();
         chai.assert.equal($('.wordcount').html(), "2")
+      });
+    })
+
+    describe("daily words goal", function(){
+      it("shows the users goal", function(){
+        //
+      });
+      it("user can change their goal", function(){
+        //
       })
     })
 
