@@ -22,7 +22,7 @@ if (Meteor.isClient) {
       e.preventDefault();
       var title = $('[name="title"]').val();
       var content = $('[name="content"]').val();
-      var wordCount = $('.wordcount').html();
+      var wordCount = parseInt($('.wordcount').html());
       Posts.insert({
         title: title,
         content: content,
