@@ -49,8 +49,10 @@ if (!(typeof MochaWeb === 'undefined')){
         $(".deletePost").first().click();
         chai.assert.equal($(".title:eq(0)").html(), "Neutra messenger bag");
       });
-    });
-    describe("creating posts", function(){
+
+    // can combine these two blocks together... (i think)
+    // });
+    // describe("creating posts", function(){
       after(function(done){
         // for now delete it to keep posts the same
         $(".deletePost").first().click(); // why no delete
@@ -82,13 +84,21 @@ if (!(typeof MochaWeb === 'undefined')){
     })
 
     describe("daily words goal", function(){
+      before(function(done){
+        $('[name="goal"]').val(400);
+        done();
+      })
       it("shows the users goal", function(){
-        //
+        chai.assert.equal($('[name="goal"]').val(), 400)
+      });
+      after(function(done){
+        $('[name="goal"]').val(400);
+        done();
       });
       it("user can change their goal", function(){
-        //
-      })
+        $('[name="goal"]').val(900);
+        chai.assert.equal($('[name="goal"]').val(), 900)
+      });
     })
-
   });
 }
