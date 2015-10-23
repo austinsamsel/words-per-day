@@ -91,6 +91,12 @@ if (!(typeof MochaWeb === 'undefined')){
       it("shows the users goal", function(){
         chai.assert.equal($('[name="goal"]').val(), 400)
       });
+      // it("user can update the goal and it is saved in the database", function(){
+      //   var mostRecent = Goals.findOne({}, {sort: {createdAt: -1}});
+      //   var dailyGoal = mostRecent.dailyGoal;
+      //   chai.assert(dailyGoal == 400);
+      // });
+
       after(function(done){
         $('[name="goal"]').val(400);
         done();
