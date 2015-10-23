@@ -50,9 +50,9 @@ if (!(typeof MochaWeb === 'undefined')){
         chai.assert.equal($(".title:eq(0)").html(), "Neutra messenger bag");
       });
 
-    // can combine these two blocks together... (i think)
-    // });
-    // describe("creating posts", function(){
+    // can combine these two blocks together... (i think). nevermind.
+     });
+     describe("creating posts", function(){
       after(function(done){
         // for now delete it to keep posts the same
         $(".deletePost").first().click(); // why no delete

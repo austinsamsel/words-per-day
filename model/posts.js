@@ -22,16 +22,24 @@ if (Meteor.isClient) {
       e.preventDefault();
       var title = $('[name="title"]').val();
       var content = $('[name="content"]').val();
-      var wordCount = parseInt($('.wordcount').html());
-      Posts.insert({
-        title: title,
-        content: content,
-        wordCount: wordCount,
-        createdAt: new Date()
-      });
-      $('[name=title]').val('');
-      $('[name=content]').val('');
-      Session.set('wordCountResult', 0);
+      var wordCount = Session.get('wordCountResult');
+
+      var mostRecent = Goals.findOne({}, {sort: {createdAt: -1}});
+      var dailyGoal = mostRecent.dailyGoal
+
+      if (wordCount > dailyGoal){
+        Posts.insert({
+          title: title,
+          content: content,
+          wordCount: wordCount,
+          createdAt: new Date()
+        });
+        $('[name=title]').val('');
+        $('[name=content]').val('');
+        Session.set('wordCountResult', 0);
+      } else {
+        console.log('not yet!!!');
+      }
     },
     'keyup [name=content]': function(e){
       var wordsToCount = $('[name="content"]').val();
@@ -39,6 +47,21 @@ if (Meteor.isClient) {
         if(err) console.error(err);
         else    Session.set('wordCountResult', results);
       });
+    }
+  });
+
+  Template.createPost.helpers({
+    wordCount: function(){
+      return Session.get('wordCountResult');
+    },
+    // make this an event???
+    enoughWords: function(){
+      var wordCount = Session.get('wordCountResult');
+      var mostRecent = Goals.findOne({}, {sort: {createdAt: -1}});
+      var dailyGoal = mostRecent.dailyGoal;
+      if (wordCount > dailyGoal){
+        return true;
+      }
     }
   });
 
@@ -51,17 +74,10 @@ if (Meteor.isClient) {
     }
   });
 
-  // helper to get the wordcount from the form.
-  Template.createPost.helpers({
-    wordCount: function(){
-      return Session.get('wordCountResult');
-    }
-  });
 
   Template.currentStreak.helpers({
     streak: function(){
       //
-
     }
   })
 

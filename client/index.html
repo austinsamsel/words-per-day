@@ -45,7 +45,11 @@
       <div class="wordcount-msg">
         YO <span class="wordcount">{{wordCount}}</span> this is the wordcount
       </div>
-      <input type="submit" value="Submit">
+      {{#if enoughWords}}
+        <input type="submit" value="Submit" />
+      {{else}}
+        Keep writing!
+      {{/if}}
    </form>
  </div>
 </template>
