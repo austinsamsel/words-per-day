@@ -27,7 +27,7 @@ if (Meteor.isClient) {
       var mostRecent = Goals.findOne({}, {sort: {createdAt: -1}});
       var dailyGoal = mostRecent.dailyGoal
 
-      if (wordCount > dailyGoal){
+      if (wordCount >= dailyGoal){
         Posts.insert({
           title: title,
           content: content,
@@ -54,12 +54,10 @@ if (Meteor.isClient) {
     wordCount: function(){
       return Session.get('wordCountResult');
     },
-    // make this an event???
     enoughWords: function(){
       var wordCount = Session.get('wordCountResult');
       var mostRecent = Goals.findOne({}, {sort: {createdAt: -1}});
-      var dailyGoal = mostRecent.dailyGoal;
-      if (wordCount > dailyGoal){
+      if (wordCount >= mostRecent.dailyGoal){
         return true;
       }
     }
