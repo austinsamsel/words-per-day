@@ -10,17 +10,15 @@
       <button type="button" name="accounts">Accounts</button>
     </div> -->
     <h2>Track your daily word count</h2>
-    <div class="createPost">
-      {{> createPost}}
-    </div>
+
+    {{> createPost}}
+
   </header>
   <div class="container">
-    <div class="current-streak">
-      Current Streak: ____
-    </div>
-    <div class="dailyGoal">
+      {{> currentStreak}}
+
       {{> dailyGoal}}
-    </div>
+
     {{#each posts}}
       {{> post}}
     {{/each}}
@@ -39,19 +37,29 @@
 </template>
 
 <template name="createPost">
-  <form>
-    Create a post:
-    <input type="text" placeholder="add a title" name="title">
-    <textarea placeholder="write your words here" name="content"></textarea>
-    <div class="wordcount-msg">
-      YO <span class="wordcount">{{wordCount}}</span> this is the wordcount
-    </div>
-    <input type="submit" value="Submit">
- </form>
+  <div class="createPost">
+    <form>
+      Create a post:
+      <input type="text" placeholder="add a title" name="title">
+      <textarea placeholder="write your words here" name="content"></textarea>
+      <div class="wordcount-msg">
+        YO <span class="wordcount">{{wordCount}}</span> this is the wordcount
+      </div>
+      <input type="submit" value="Submit">
+   </form>
+ </div>
 </template>
 
 <template name="dailyGoal">
-  <form>
-    Your daily goal: <input value="{{dailyGoal}}" placeholder="your goal" name="goal"> words.
- </form>
+  <div class="dailyGoal">
+    <form>
+      Your daily goal: <input value="{{dailyGoal}}" placeholder="your goal" name="goal"> words.
+   </form>
+ </div>
+</template>
+
+<template name="currentStreak">
+  <div class="current-streak">
+    Current Streak: {{streak}}
+  </div>
 </template>

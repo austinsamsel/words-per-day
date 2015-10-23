@@ -58,5 +58,12 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.currentStreak.helpers({
+    streak: function(){
+      //
+
+    }
+  })
+
 
 }
